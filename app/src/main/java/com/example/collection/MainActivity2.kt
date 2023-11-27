@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.collection.databinding.ActivityMain2Binding
+import java.util.concurrent.Executors
 import kotlin.concurrent.thread
 
 class MainActivity2 : AppCompatActivity() {
@@ -25,5 +26,19 @@ class MainActivity2 : AppCompatActivity() {
                 Log.d(TAG, "onCreate: i = $i");
             };
         };
+
+        // 스레드 풀 생성
+        val threadPool = Executors.newFixedThreadPool(4);
+
+        // 작업을 스레드 풀에 제출
+        threadPool.execute {
+            // 비동기로 실행될 작업
+            println("test1");
+            Thread.sleep(1000); // 1초동안 작업 수행
+            println("test2");
+        };
+        
+        // 스레드 풀 종료
+        threadPool.shutdown();
     };
 }

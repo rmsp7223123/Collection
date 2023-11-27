@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         // Array같이 안에 값이 있는 리스트
         // list안에 string이나 Int가 들어갈 수 있고 ListOf를 쓰면 읽기만 가능한 array가 만들어지고
         // arraylistOf로 만들어주면 편집이 가능
+        // 리스트는 동적 크기를 가진 선형 자료구조로, 원소를 추가하거나 제거할 때 크기가 자동으로 조절
 
         //변경 불가능
         val names = listOf("Sean", "John"); //읽기만 가능
@@ -109,6 +110,26 @@ class MainActivity : AppCompatActivity() {
         // Mutable Set
         // MutableSetOf = HashSetof
         // HashSetOf도 MutableSetOf 인터페이스를 상속받은 구현체
+
+
+
+
+        fun main2() {
+            // Vector
+            // 벡터는 리스트와 유사하지만,
+            // 요소가 추가되거나 제거될 때 크기가 동적으로 조절되는 것이 아니라, 일정한 크기의 버퍼를 가지며 데이터를 저장
+            // 벡터는 일정한 크기의 버퍼를 가지고 있기 때문에 요소가 추가되거나 제거될 때마다 재할당이 필요하지 않음
+            // 벡터는 크기가 고정되어 있어 요소의 추가 및 제거가 리스트보다는 비용이 더 적게 들 수 있지만,
+            // 중간에 요소를 삽입하거나 삭제할 때는 요소들을 이동시켜야 하는 오버헤드가 발생할 수 있음
+          val myList : MutableList<String> = mutableListOf("apple", "banana" , "orange");
+            myList.add("grape");
+            println("List after adding: $myList");
+
+            myList.remove("banana");
+            println("List after adding: $myList");
+
+            println("Element at index 0: ${myList[0]}");
+        };
 
 
     }
